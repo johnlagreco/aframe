@@ -16,46 +16,12 @@ ActiveRecord::Schema.define(version: 20160229205157) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
-
-  create_table "regulars", force: :cascade do |t|
-    t.string   "fname"
-    t.string   "lname"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "phone"
-    t.boolean  "subscribed"
-  end
-
-  add_index "regulars", ["user_id"], name: "index_regulars_on_user_id", using: :btree
-
+  
   create_table "subscribers", force: :cascade do |t|
     t.string   "phone_number"
-    t.boolean  "subscribed"
+    t.boolean  "subscribed",   default: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "coname"
-    t.string   "ownername"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_foreign_key "messages", "users"
-  add_foreign_key "regulars", "users"
 end
