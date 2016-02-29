@@ -1,0 +1,8 @@
+<h1>Notifications#index</h1>
+<p>Find me in app/views/notifications/index.html.erb</p>
+
+<%= form_tag 'new/', method: "post" do %>
+	  <%= label_tag :message, "Enter Daily Special:" %>
+	  <%= text_field_tag :message, '', class: "form-control", placeholder: "Type it here." %>
+	  <button type="submit" class="btn btn-primary">SEND THE WORD!</button>
+<% end %>
