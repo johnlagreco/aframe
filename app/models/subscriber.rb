@@ -5,7 +5,7 @@ class Subscriber < ActiveRecord::Base
   	message = @client.account.message.create(
   		:from => @twilio_number,
   		:to => self.phone_number,
-  		:body => msg,
+  		:body => msg
   	)
   	puts message.to
   end
